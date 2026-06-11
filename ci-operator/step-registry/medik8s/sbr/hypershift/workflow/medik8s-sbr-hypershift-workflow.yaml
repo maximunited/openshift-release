@@ -1,5 +1,5 @@
 workflow:
-  as: medik8s-sbr-hypershift-workflow
+  as: medik8s-sbr-hypershift
   documentation: |-
     HyperShift AWS cluster lifecycle for medik8s SBR e2e tests.
     Provisions a nested management cluster + hosted cluster (3x m5.4xlarge workers)
