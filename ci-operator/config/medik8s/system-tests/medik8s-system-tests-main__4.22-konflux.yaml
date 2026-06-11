@@ -189,7 +189,7 @@ tests:
         requests:
           cpu: 100m
           memory: 200Mi
-    workflow: medik8s-sbr-hypershift-workflow
+    workflow: medik8s-sbr-hypershift
 - always_run: false
   as: e2e-snr-aws
   capabilities:
