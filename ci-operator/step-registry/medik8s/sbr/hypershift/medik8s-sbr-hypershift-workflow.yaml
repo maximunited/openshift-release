@@ -13,6 +13,7 @@ workflow:
     - ref: hypershift-install
     - chain: hypershift-aws-create
     post:
+    - ref: medik8s-sbr-hypershift-restore-kubeconfig
     - chain: hypershift-dump
     - chain: hypershift-aws-destroy
     - chain: hypershift-destroy-nested-management-cluster

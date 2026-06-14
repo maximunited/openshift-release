@@ -176,6 +176,7 @@ tests:
       ODF_OPERATOR_SUB_CHANNEL: stable-4.21
       OO_CHANNEL: stable
       OPERATORS: storage-based-remediation
+      SKIP_IDMS: "true"
     test:
     - ref: medik8s-sbr-hypershift-switch-kubeconfig
     - ref: medik8s-catalogsource
