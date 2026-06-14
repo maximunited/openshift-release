@@ -1,0 +1,32 @@
+ref:
+  as: medik8s-polarion-reporter
+  from_image:
+    namespace: ocp
+    name: "4.1"
+    tag: base
+  commands: medik8s-polarion-reporter-commands.sh
+  credentials:
+  - namespace: test-credentials
+    name: medik8s-polarion-creds
+    mount_path: /var/run/polarion
+  resources:
+    requests:
+      cpu: 100m
+      memory: 100Mi
+  timeout: 10m0s
+  env:
+  - name: POLARION_PROJECT_ID
+    default: "OSE"
+    documentation: Polarion project ID to import results into.
+  - name: POLARION_TESTRUN_ID
+    default: ""
+    documentation: |-
+      Polarion test run ID to update (e.g. "RHWA-SBR-4.22-weekly").
+      If empty, Polarion creates a new test run from the imported XML.
+  - name: POLARION_URL
+    default: "https://polarion.engineering.redhat.com"
+    documentation: Base URL of the Polarion instance.
+  documentation: |-
+    Uploads JUnit XML test results from $SHARED_DIR to Polarion via the XUnit
+    importer API. Reads credentials from the medik8s-polarion-creds secret.
+    Must run after the test step that writes junit_*.xml files to $SHARED_DIR.

@@ -160,6 +160,8 @@ tests:
         requests:
           cpu: 100m
           memory: 200Mi
+    post:
+    - ref: medik8s-polarion-reporter
     workflow: ipi-aws
 - always_run: false
   as: e2e-sbr-hypershift-aws-odf
@@ -262,6 +264,7 @@ tests:
       ODF_OPERATOR_SUB_CHANNEL: stable-4.21
       OO_CHANNEL: stable
       OPERATORS: storage-based-remediation
+      POLARION_TESTRUN_ID: "RHWA-SBR-4.22-weekly"
     test:
     - ref: medik8s-catalogsource
     - ref: medik8s-operator-subscribe
@@ -278,6 +281,8 @@ tests:
         requests:
           cpu: 100m
           memory: 200Mi
+    post:
+    - ref: medik8s-polarion-reporter
     workflow: ipi-aws
 zz_generated_metadata:
   branch: main
